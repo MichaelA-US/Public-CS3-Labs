@@ -41,7 +41,7 @@ public class QuadraticTester
 		}
 		long buildTableTimerFin2 = System.currentTimeMillis();
 		PrintWriter output = new PrintWriter(new FileOutputStream("Report.txt"));
-		output.println("Type of hashing used: LINEAR PROBING");
+		output.println("Type of hashing used: QUADRATIC PROBING");
 		output.println("Hash function used: Multiply the keys together add the key, modulus divide that by the size of the hashMap");
 		output.println("Number of records added: 50,000");
 		output.println("Table Size: " + size);
@@ -55,7 +55,7 @@ public class QuadraticTester
 		output.close();
 		
 		//TESTING OUTPUT TO CONSOLE
-		System.out.println("Type of hashing used: LINEAR PROBING");
+		System.out.println("Type of hashing used: QUADRATIC PROBING");
 		System.out.println("Hash function used: Multiply the keys together add the key, modulus divide that by the size of the hashMap");
 		System.out.println("Number of records added: " + recordsAdded);
 		System.out.println("Table Size: " + size);
