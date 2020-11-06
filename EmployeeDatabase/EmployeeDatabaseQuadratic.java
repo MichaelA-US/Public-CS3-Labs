@@ -125,7 +125,7 @@ public class EmployeeDatabaseQuadratic
 	 */
 	public void res() 
 	{
-		numCollide = 0;
+		getCollide = 0;
 	}
 	/**
 	 * Basic toString that prints out the hashTable
