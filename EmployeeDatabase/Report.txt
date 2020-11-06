@@ -1,0 +1,11 @@
+Type of hashing used: LINEAR PROBING
+Hash function used: Multiply the keys together add the key, modulus divide that by the size of the hashMap
+Number of records added: 50,000
+Table Size: 50505
+Load Factor: 0.99
+Number of Table Insertion Collisons: 144644
+Number of collisions vs. number of insertions (expressed as %): 289.288%
+Successful Search Records
+Average Search Time: 0.005ms
+Unsuccessful Search Records
+Average Search Time: 0.007ms
