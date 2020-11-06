@@ -1,0 +1,69 @@
+import java.util.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+public class QuadraticTester
+{
+	private static final double FACTOR = .99;
+	public static void main(String args[]) throws IOException
+	{
+		int size = (int) (50000 / FACTOR);
+		EmployeeDatabaseQuadratic data = new EmployeeDatabaseQuadratic(size);
+		Scanner scan = new Scanner(new File("Large Data Set.txt"));
+		
+		while(scan.hasNext()) 
+		{
+			int id = scan.nextInt();
+			Employee employee = new Employee(scan.nextLine());
+			data.put(id, employee);
+		}
+		
+		Scanner scan1 = new Scanner(new File("Successful Search Records.txt"));
+		while(scan1.hasNext()) 
+		{
+			int id = scan1.nextInt();
+            scan1.nextLine();
+			data.get(id);
+		}
+		
+		Scanner scan2 = new Scanner(new File("Unsuccessful Search Records.txt"));
+		while(scan2.hasNext()) 
+		{
+			int id = scan2.nextInt();
+			scan2.nextLine();
+			data.get(id);
+		}
+		
+		PrintWriter output = new PrintWriter(new File("Report.txt"));
+		output.println("Type of hashing used: LINEAR PROBING");
+		output.println("Hash function used: Multiply the keys together add the key, modulus divide that by the size of the hashMap");
+		output.println("Number of records added: 50,000");
+		output.println("Table Size: " + size);
+		output.println("Load Factor: " + FACTOR);
+		output.println("Number of Table Insertion Collisons: " + data.numCollide);
+		output.println("Number of collisions vs. number of insertions (expressed as %): " + (((double) data.numCollide / 50000) * 100) + "%");
+		output.close();
+		
+		//TESTING OUTPUT TO CONSOLE
+		System.out.println("Type of hashing used: LINEAR PROBING");
+		System.out.println("Hash function used: Multiply the keys together add the key, modulus divide that by the size of the hashMap");
+		System.out.println("Number of records added: 50,000");
+		System.out.println("Table Size: " + size);
+		System.out.println("Load Factor: " + FACTOR);
+		System.out.println("Number of Table Insertion Collisons: " + data.numCollide);
+		System.out.println("Number of collisions vs. number of insertions (expressed as %): " + (((double) data.numCollide / 50000) * 100) + "%");
+		
+//		EmployeeDatabaseQuadratic test = new EmployeeDatabaseQuadratic();
+//		System.out.println(test.put(1234,"BOB"));
+//		System.out.println(test.put(1,"JEFF"));
+//		System.out.println(test.put(1455,"GREG"));
+//		System.out.println(test.put(1766,"FISCHER"));
+//		System.out.println(test.hashCode(1));
+//		System.out.println(test.hashCode(1756));
+//		System.out.println(test.hashCode(176));
+//		System.out.println(test.get(1234));
+//		System.out.println(test.get(1455));
+//		System.out.println(test.get(1));
+	}
+}

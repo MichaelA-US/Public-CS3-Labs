@@ -30,7 +30,7 @@ public class EmployeeDatabaseLinear
 	private Entry[] hashTable;
 	private int getCollide;
 	private int size;
-	private int numCollide;
+	public int numCollide;
 	/**
 	 * Basic constructor that initalizes hashTable with prime number 13 to avoid problems
 	 * and initalizes the other vars
@@ -68,26 +68,22 @@ public class EmployeeDatabaseLinear
 	 * @param value - the val
 	 * @return the employee
 	 */
-	public Employee put(int key, String value)
+	public void put(int key, Employee value)
 	{
-		Employee employee = new Employee(value);
 		int temp = hashCode(key);
-		for(int i = 0; i < hashTable.length; i++)
+		try
 		{
-			if(hashTable[temp] == null)
-			{
-				Entry tempEnt = new Entry(key, employee); 
-				hashTable[temp] = tempEnt;
-				size++;
-				return employee;
-			}
-			else
-			{
-				numCollide++;
-			}
-			temp = (temp + 1) % hashTable.length;
+		 while (hashTable[temp] != null) 
+		 {
+	            temp++;
+	            numCollide++;
+	        }
+	        hashTable[temp] = new Entry(key, value);
 		}
-		return employee;
+		catch(Exception e)
+		{
+			
+		}
 	}
 	/**
 	 * gets the actual employee when given the key by checking its hashcode
@@ -98,17 +94,21 @@ public class EmployeeDatabaseLinear
 	public Employee get(int key)
 	{
 		int temp = hashCode(key);
-		for(int i = 0; i < hashTable.length; i++)
+		try
 		{
-			if(hashTable[temp] == null)
-			{
-				break;
-			}
-			else if(hashTable[temp].ID == key)
-			{
-				return hashTable[temp].employee;
-			}
-			temp = (temp + 1) % hashTable.length;
+		 while (hashTable[temp] == null || hashTable[temp].ID != key)
+		 {
+			 temp++;
+	            if (temp == hashTable.length) 
+	            {
+	            	return null;
+	            }
+	        }
+	        return hashTable[temp].employee;
+		}
+		catch(Exception e)
+		{
+			
 		}
 		return null;
 	}

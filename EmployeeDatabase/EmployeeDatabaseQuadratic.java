@@ -31,7 +31,7 @@ public class EmployeeDatabaseQuadratic
 	private Entry[] hashTable;
 	private int getCollide;
 	private int size;
-	private int numCollide;
+	public int numCollide;
 	/**
 	 * Basic constructor that initalizes hashTable with prime number 13 to avoid problems
 	 * and initalizes the other vars
@@ -74,6 +74,8 @@ public class EmployeeDatabaseQuadratic
 	{
 		int temp = hashCode(key);
 		int count = 1;
+		try
+		{
 		while(hashTable[temp] != null)
 		{
 			temp += count * count;
@@ -81,6 +83,11 @@ public class EmployeeDatabaseQuadratic
 			numCollide++;
 		}
 		hashTable[temp] = new Entry(key, value);
+		}
+		catch(Exception e)
+		{
+			
+		}
 	}
 	/**
 	 * Quadratic probing system that gets the entry does this by getting the 
@@ -93,6 +100,8 @@ public class EmployeeDatabaseQuadratic
 	{
 		int temp = hashCode(key);
 		int count = 1;
+		try
+		{
 		while(hashTable[temp] == null || hashTable[temp].ID != key)
 		{
 			temp += count * count;
@@ -103,6 +112,12 @@ public class EmployeeDatabaseQuadratic
 			}
 		}
 		return hashTable[temp].employee;
+		}
+		catch(Exception e)
+		{
+			
+		}
+		return null;
 	}
 	/**
 	 * Basic toString that prints out the hashTable
