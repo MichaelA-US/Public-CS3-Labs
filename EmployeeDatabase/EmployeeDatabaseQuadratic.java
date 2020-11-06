@@ -29,7 +29,7 @@ public class EmployeeDatabaseQuadratic
 	}
 
 	private Entry[] hashTable;
-	private int getCollide;
+	public int getCollide;
 	private int size;
 	public int numCollide;
 	/**
@@ -104,6 +104,7 @@ public class EmployeeDatabaseQuadratic
 		{
 		while(hashTable[temp] == null || hashTable[temp].ID != key)
 		{
+			getCollide++;
 			temp += count * count;
 			count++;
 			if(temp == hashTable.length)
@@ -118,6 +119,13 @@ public class EmployeeDatabaseQuadratic
 			
 		}
 		return null;
+	}
+	/**
+	 * Reset num probs collided
+	 */
+	public void res() 
+	{
+		numCollide = 0;
 	}
 	/**
 	 * Basic toString that prints out the hashTable

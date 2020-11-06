@@ -28,7 +28,7 @@ public class EmployeeDatabaseLinear
 	}
 
 	private Entry[] hashTable;
-	private int getCollide;
+	public int getCollide;
 	private int size;
 	public int numCollide;
 	/**
@@ -98,6 +98,7 @@ public class EmployeeDatabaseLinear
 		{
 		 while (hashTable[temp] == null || hashTable[temp].ID != key)
 		 {
+			 getCollide++;
 			 temp++;
 	            if (temp == hashTable.length) 
 	            {
@@ -111,6 +112,13 @@ public class EmployeeDatabaseLinear
 			
 		}
 		return null;
+	}
+	/**
+	 * Reset num probs collided
+	 */
+	public void res() 
+	{
+		numCollide = 0;
 	}
 	/**
 	 * Basic toString that prints out the hashTable

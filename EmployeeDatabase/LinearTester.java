@@ -30,6 +30,8 @@ public class LinearTester
             scan1.nextLine();
 			data.get(id);
 		}
+		int numProbe = data.getCollide;
+		data.res();
 		long buildTableTimerFin1 = System.currentTimeMillis();
 		Scanner scan2 = new Scanner(new File("Unsuccessful Search Records.txt"));
 		long buildTableTimer2 = System.currentTimeMillis();
@@ -39,6 +41,8 @@ public class LinearTester
 			scan2.nextLine();
 			data.get(id);
 		}
+		int numProbe1 = data.getCollide;
+		data.res();
 		long buildTableTimerFin2 = System.currentTimeMillis();
 		PrintWriter output = new PrintWriter(new FileOutputStream("Report.txt"));
 		output.println("Type of hashing used: LINEAR PROBING");
@@ -50,8 +54,10 @@ public class LinearTester
 		output.println("Number of collisions vs. number of insertions (expressed as %): " + (((double) data.numCollide / 50000) * 100) + "%");
 		output.println("Successful Search Records");
 		output.println("Average Search Time: " + ((double) (buildTableTimerFin1 - buildTableTimer1) / 1000) + "ms");
+		output.println("Number Of Probes To Find: " + numProbe);
 		output.println("Unsuccessful Search Records");
 		output.println("Average Search Time: " + ((double) (buildTableTimerFin2 - buildTableTimer2) / 1000) + "ms");
+		output.println("Number Of Probes To Find: " + numProbe1);
 		output.close();
 		
 		//TESTING OUTPUT TO CONSOLE
@@ -65,9 +71,10 @@ public class LinearTester
 		System.out.println("Number of collisions vs. number of insertions (expressed as %): " + (((double) data.numCollide / 50000) * 100) + "%");
 		System.out.println("Successful Search Records");
 		System.out.println("Average Search Time: " + ((double) (buildTableTimerFin1 - buildTableTimer1) / 1000) + "ms");
+		System.out.println("Number Of Probes To Find: " + numProbe);
 		System.out.println("Unsuccessful Search Records");
 		System.out.println("Average Search Time: " + ((double) (buildTableTimerFin2 - buildTableTimer2) / 1000) + "ms");
-		
+		System.out.println("Number Of Probes To Find: " + numProbe1);
 		
 		
 		
