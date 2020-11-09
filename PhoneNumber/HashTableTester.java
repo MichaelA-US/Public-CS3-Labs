@@ -3,11 +3,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class PhoneBookTester {
+public class HashTableTester {
 	public static void main(String[] args) throws FileNotFoundException 
 	{
 		Scanner scan = new Scanner(new File("White Pages.txt"));
-		PhoneBook test = new PhoneBook();
+		MyHashTable<Person, PhoneNumber> test = new MyHashTable<Person, PhoneNumber>();
 
 		while (scan.hasNext())
 		{
@@ -21,9 +21,6 @@ public class PhoneBookTester {
 		System.out.println(new Person("TiphanieCossor").hashCode());
 		System.out.println(new Person("HilliaryYbarra").hashCode());
 		System.out.println(new Person("ArdathTizard").hashCode());
-		System.out.println(new PhoneNumber("456-499-9393").hashCode());
-		System.out.println(new Person("123-459-8798").hashCode());
-		System.out.println(new Person("756-643-8365").hashCode());
 		System.out.println();
 		
 		System.out.println("---GET TEST---");
@@ -38,6 +35,7 @@ public class PhoneBookTester {
 		System.out.println("GET: Hilliary Ybarra ---------> " + test.get(new Person("HilliaryYbarra")));
 		System.out.println("REMOVE: Hilliary Ybarra ------> " + test.remove(new Person("HilliaryYbarra"))); //Hilliary,Ybarra,863-871-1169
 		System.out.println("GET: Hilliary Ybarra ---------> " + test.get(new Person("HilliaryYbarra")));
+		//System.out.println("GET: Ardath Tizard -----------> " + test.get(new Person("ArdathTizard"))); //814-623-3296
 		System.out.println("REMOVE: BOB (Doesn't EXIST) --> " + test.remove(new Person("Bob"))); 
 	}
 }
