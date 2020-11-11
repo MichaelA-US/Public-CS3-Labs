@@ -1,4 +1,6 @@
-
+/**
+ * IMap Generic interface that defines the put, get and remove methods
+ */
 public interface IMapGeneric<K, V>
 {
 	/**

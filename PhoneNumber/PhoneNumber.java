@@ -18,6 +18,8 @@ public class PhoneNumber
 	/**
 	 * This method defines the equals method by comparing the object's phone number to
 	 * the current phone number
+	 * @param obj - the Object to compare whether it is equal to the PhoneNumber
+	 * @return whether the object is equal to the PhoneNumber (true/false)
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -26,16 +28,20 @@ public class PhoneNumber
 			return pNumber.equals(temp.pNumber);
 	}
 	/**
-	 * This method defines the hashCode of the phone number by modulus it by 5
+	 * This method defines the hashcode of the phoneNumber by taking the first
+	 * char of the phoneNumber and modulusly dividing it by the length and modulus that by 11 to make sure
+	 * it stays within the 11 buckets.
+	 * @return the hashcode of the phoneNumber -  pNumber.charAt(0) % pNumber.length() % 11
 	 */
 	@Override
 	public int hashCode()
 	{
 		//Might need to change
-		return pNumber.length() % 5;
+		return pNumber.charAt(0) % pNumber.length() % 11;
 	}
 	/**
 	 * Returns the phonenumber as a string
+	 * @return the phonenumber of the PhoneNumber object
 	 */
 	@Override
 	public String toString()
