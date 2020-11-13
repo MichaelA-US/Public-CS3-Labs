@@ -15,9 +15,9 @@ public class WorstFit
 		pDisk.add(new Disk(dskNum++));
 		while(scan.hasNextLine()) 
 		{
-			String disk = scan.nextLine();
+			int disk = scan.nextInt();
 			Disk lowDisk = pDisk.poll();
-			Integer size = Integer.parseInt(disk);
+			Integer size = disk;
 			if(lowDisk.newDisk(size)) 
 			{
 				lowDisk.add(size);
