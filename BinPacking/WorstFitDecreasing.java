@@ -12,14 +12,13 @@ public class WorstFitDecreasing
 		Scanner scan = new Scanner(new File("input20.txt"));
 		PriorityQueue<Disk> pDisk = new PriorityQueue<Disk>();
 		ArrayList<Integer> pDisk2 = new ArrayList<Integer>();
-
+		double gigs = 0.0;
+		int dskNum = 0;
 		while(scan.hasNextLine()) 
 		{
-			pDisk2.add(Integer.parseInt(scan.nextLine()));
+			pDisk2.add(scan.nextInt());
 		}
 		Collections.sort(pDisk2);
-
-		int dskNum = 0;
 		pDisk.add(new Disk(dskNum++));
 		for(int i = pDisk2.size()-1; i >= 0; i--) 
 		{
@@ -39,7 +38,6 @@ public class WorstFitDecreasing
 				pDisk.add(newDisk);
 			}
 		}
-		double gigs = 0.0;
 		for(Disk disk : pDisk) 
 		{
 			gigs += disk.getSizeGig();
