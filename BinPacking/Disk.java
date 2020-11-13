@@ -26,7 +26,7 @@ public class Disk implements Comparable<Disk>
 	}
 	public boolean newDisk(Integer capacity)
 	{
-		return (remSizeKB - capacity) >= 0;
+		return remSizeKB - capacity >= 0;
 	}
 	public int add(Integer other) 
 	{
@@ -73,7 +73,7 @@ public class Disk implements Comparable<Disk>
 	public String toString () 
 	{
 		String output = "";
-		output += this.numDisks + " " + remSizeKB + ": ";
+		output += numDisks + " " + remSizeKB + ": ";
 		for(Integer file : files)
 		{
 			output += file + " ";
